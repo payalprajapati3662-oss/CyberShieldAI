@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict - CyberShield</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">🛡 CyberShield</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/predict">Predict</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/history">History</a>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <h1>Cyber Threat Detection</h1>
+        <p>Enter network traffic details for an ML-based prediction.</p>
+
+        <form action="/predict" method="POST" class="prediction-form">
+            {% for feature in features %}
+                <div class="form-group">
+                    <label for="{{ feature }}">{{ feature.replace('_', ' ').title() }}</label>
+
+                    {% if feature == 'protocol_type' %}
+                        <select id="{{ feature }}" name="{{ feature }}" required>
+                            <option value="tcp">TCP</option>
+                            <option value="udp">UDP</option>
+                            <option value="icmp">ICMP</option>
+                        </select>
+
+                    {% elif feature == 'service' %}
+                        <select id="{{ feature }}" name="{{ feature }}" required>
+                            <option value="http">HTTP</option>
+                            <option value="ftp">FTP</option>
+                            <option value="private">Private</option>
+                            <option value="smtp">SMTP</option>
+                            <option value="domain_u">Domain</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                    {% elif feature == 'flag' %}
+                        <select id="{{ feature }}" name="{{ feature }}" required>
+                            <option value="SF">SF</option>
+                            <option value="S0">S0</option>
+                            <option value="REJ">REJ</option>
+                            <option value="RSTR">RSTR</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
+                            <option value="RSTO">RSTO</option>
+                            <option value="SH">SH</option>
+                            <option value="OTH">OTH</option>
+                        </select>
+
+                    {% else %}
+                        <input
+                            type="number"
+                            id="{{ feature }}"
+                            name="{{ feature }}"
+                            min="0"
+                            step="any"
+                            value="0"
+                            required
+                        >
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="primary-btn">Analyze Traffic</button>
+        </form>
+
+        <p class="note">
+            Educational demonstration using the NSL-KDD dataset.
+            This form uses manually entered values, not live network traffic.
+        </p>
+    </main>
+</body>
+</html>

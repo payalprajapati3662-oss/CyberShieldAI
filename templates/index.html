@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield | AI Cyber Threat Detection</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="/">⬡ CyberShield</a>
+
+        <nav class="nav-links">
+            <a class="active" href="/">Home</a>
+            <a href="/predict">Predict</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/history">History</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">INTELLIGENT CYBER DEFENCE</p>
+                <h1>AI-Powered<br>
+                    <span>Cyber Threat</span><br>
+                    Detection System
+                </h1>
+
+                <p class="hero-description">
+                    Analyse network traffic using Machine Learning
+                    to identify potentially suspicious activity and
+                    help protect digital systems.
+                </p>
+
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="/predict">Get Started →</a>
+                    <a class="btn btn-outline" href="#about">Learn More</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="shield-glow"></div>
+                <div class="shield">⬡<span>✓</span></div>
+                <p>AI SECURITY SYSTEM</p>
+            </div>
+        </section>
+
+        <section class="features" id="about">
+            <article class="feature-card">
+                <h3>⬡ Threat Detection</h3>
+                <p>Identify potentially suspicious network activity.</p>
+            </article>
+            <article class="feature-card">
+                <h3>✳ Machine Learning</h3>
+                <p>Classify network records using a trained model.</p>
+            </article>
+            <article class="feature-card">
+                <h3>▤ Secure Records</h3>
+                <p>Maintain a history of analysed sample traffic.</p>
+            </article>
+            <article class="feature-card">
+                <h3>⌁ Detailed Reports</h3>
+                <p>Explore results and model performance.</p>
+            </article>
+        </section>
+
+        <section class="next-section" id="predict">
+            <p class="eyebrow">START ANALYSING</p>
+            <h2>Your Network. Smarter Insights.</h2>
+            <p>Your prediction form will be added in the next step.</p>
+        </section>
+
+        <div id="dashboard"></div>
+        <div id="history"></div>
+    </main>
+
+    <footer>
+        <strong>⬡ CyberShield</strong>
+        <p>Student ML Project · Educational Demonstration</p>
+    </footer>
+</body>
+</html>

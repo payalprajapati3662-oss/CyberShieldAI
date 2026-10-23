@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CyberShield</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="/">⬡ CyberShield</a>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/predict">Predict</a>
+            <a class="active" href="/dashboard">Dashboard</a>
+            <a href="/history">History</a>
+            <a href="/#about">About</a>
+        </nav>
+    </header>
+
+    <main class="dashboard-page">
+        <section class="dashboard-heading">
+            <p class="eyebrow">SECURITY OVERVIEW</p>
+            <h1>Dashboard <span>Overview</span></h1>
+            <p>Monitor network analysis and machine learning performance.</p>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <p>Total Scans</p>
+                <h2>0</h2>
+                <span>Analyses recorded</span>
+            </article>
+
+            <article class="stat-card">
+                <p>Threats Detected</p>
+                <h2>0</h2>
+                <span>Threat classifications</span>
+            </article>
+
+            <article class="stat-card">
+                <p>Normal Traffic</p>
+                <h2>0</h2>
+                <span>Normal classifications</span>
+            </article>
+
+            <article class="stat-card">
+                <p>Model Accuracy</p>
+                <h2>Pending</h2>
+                <span>Awaiting model evaluation</span>
+            </article>
+        </section>
+
+        <section class="dashboard-panel">
+            <h2>Recent Network Activity</h2>
+            <p class="panel-description">
+                Your recent analysis records will appear here
+                after we connect the prediction system and database.
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scan ID</th>
+                            <th>Date &amp; Time</th>
+                            <th>Prediction</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" class="empty-state">
+                                No analysis records yet.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <a class="btn btn-primary dashboard-action" href="/predict">
+                Start New Analysis →
+            </a>
+        </section>
+
+        <p class="demo-notice">
+            Dashboard preview: statistics are placeholders, not live
+            security monitoring data.
+        </p>
+    </main>
+
+    <footer>
+        <strong>⬡ CyberShield</strong>
+        <p>Student ML Project · Educational Demonstration</p>
+    </footer>
+</body>
+</html>

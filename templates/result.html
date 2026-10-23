@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Result - CyberShield</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">🛡 CyberShield</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/predict">Predict</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/history">History</a>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <h1>Analysis Result</h1>
+
+        {% if prediction %}
+            <div class="result-card">
+                {% if prediction == "Attack Detected" %}
+                    <h2 class="danger-text">⚠️ Attack Detected</h2>
+                    <p>The model classified this network traffic as an attack.</p>
+                {% else %}
+                    <h2 class="safe-text">✓ Normal Traffic</h2>
+                    <p>The model classified this network traffic as normal.</p>
+                {% endif %}
+
+                <p><strong>Model:</strong> Random Forest</p>
+                <p><strong>Dataset:</strong> NSL-KDD</p>
+            </div>
+        {% else %}
+            <p>No prediction has been submitted yet. Start a scan first.</p>
+        {% endif %}
+
+        <a href="/predict" class="primary-btn">Analyze Another Traffic Record</a>
+        <a href="/" class="secondary-btn">Back to Home</a>
+
+        <p class="note">
+            This is an educational ML demonstration using manually entered
+            dataset-style values. It does not scan your device or network.
+        </p>
+    </main>
+</body>
+</html>
